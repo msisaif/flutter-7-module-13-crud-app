@@ -17,13 +17,9 @@ jobs:
       - name: Flutter pub upgrade
         run: flutter pub upgrade
 
-      - name: Flutter build web
-        run: flutter build web --web-renderer canvaskit
-
-      # Add this step to modify the base href after the build
-      - name: Update base href for GitHub Pages
-        run: |
-          sed -i 's|<base href="/" />|<base href="https://msisaif.github.io/flutter-7-module-13-crud-app/" />|' build/web/index.html
+      # Build with --base-href argument
+      - name: Flutter build web with base-href
+        run: flutter build web --web-renderer canvaskit --base-href "/flutter-7-module-13-crud-app/"
 
       - name: Release the documentation
         uses: crazy-max/ghaction-github-pages@v3
@@ -33,4 +29,3 @@ jobs:
           build_dir: build/web
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-
