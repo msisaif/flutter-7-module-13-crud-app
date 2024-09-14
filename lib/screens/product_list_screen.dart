@@ -72,7 +72,8 @@ class _ProductListScreenState extends State<ProductListScreen> {
       _inProgress = true;
     });
 
-    Uri uri = Uri.parse('http://164.68.107.70:6060/api/v1/ReadProduct');
+    // Uri uri = Uri.parse('http://164.68.107.70:6060/api/v1/ReadProduct');
+    Uri uri = Uri.parse('https://msilabs-todos.vercel.app/api/v2/products');
     Response response = await get(uri);
 
     if (response.statusCode == 200) {
@@ -81,13 +82,12 @@ class _ProductListScreenState extends State<ProductListScreen> {
       for (var item in jsonResponse['data']) {
         Product product = Product(
           id: item['_id'],
-          name: item['ProductName'] ?? '',
-          code: item['ProductCode'] ?? '',
-          photo: item['Img'] ?? '',
-          unitPrice: item['UnitPrice'] ?? '',
-          quantity: item['Qty'] ?? '',
-          totalPrice: item['TotalPrice'] ?? '',
-          createdAt: item['CreatedDate'] ?? '',
+          name: item['name'] ?? '',
+          code: item['code'] ?? '',
+          photo: item['image'] ?? '',
+          unitPrice: item['unitPrice'] ?? 0,
+          quantity: item['quantity'] ?? 0,
+          totalPrice: item['totalPrice'] ?? 0,
         );
         productList.add(product);
       }
