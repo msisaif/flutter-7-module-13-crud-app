@@ -1,9 +1,13 @@
+import 'package:crud/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:crud/screens/update_product_screen.dart';
 
 class ProductItem extends StatelessWidget {
+  final Product product;
+
   const ProductItem({
     super.key,
+    required this.product,
   });
 
   @override
@@ -11,16 +15,16 @@ class ProductItem extends StatelessWidget {
     return ListTile(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       tileColor: Colors.white,
-      title: const Text('Product name'),
+      title: Text(product.name),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Product Code: CODE'),
-          const Text('Price: \$120'),
-          const Text('Quantity: 2'),
-          const Text('Total Price: \$240'),
+          Text('Product Code: ${product.code}'),
+          Text('Price: \$${product.unitPrice}'),
+          Text('Quantity: ${product.quantity}'),
+          Text('Total Price: \$${product.totalPrice}'),
           const Divider(),
-          ButtonBar(
+          OverflowBar(
             children: [
               TextButton.icon(
                 onPressed: () {

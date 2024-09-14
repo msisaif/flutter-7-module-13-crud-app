@@ -7,7 +7,9 @@ class CrudApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      title: 'CRUD APP',
       home: ProductListScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
