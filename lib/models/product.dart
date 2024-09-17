@@ -3,9 +3,10 @@ class Product {
   final String name;
   final String code;
   final String photo;
-  final double unitPrice;
-  final int quantity;
-  final double totalPrice;
+  final String unitPrice;
+  final String quantity;
+  final String totalPrice;
+  final String createdAt;
 
   Product({
     required this.id,
@@ -15,5 +16,6 @@ class Product {
     required this.unitPrice,
     required this.quantity,
     required this.totalPrice,
+    required this.createdAt,
   });
 }

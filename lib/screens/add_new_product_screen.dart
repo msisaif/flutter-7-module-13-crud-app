@@ -145,15 +145,14 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
       _inProgress = true;
     });
 
-    // Uri uri = Uri.parse('http://164.68.107.70:6060/api/v1/CreateProduct');
-    Uri uri = Uri.parse('https://msilabs-todos.vercel.app/api/v2/products');
+    Uri uri = Uri.parse('http://164.68.107.70:6060/api/v1/CreateProduct');
     Map<String, dynamic> requestBody = {
-      "image": _imageTEController.text,
-      "code": _codeTEController.text,
-      "name": _productNameTEController.text,
-      "quantity": _quantityTEController.text,
-      "totalPrice": _totalPriceTEController.text,
-      "unitPrice": _unitPriceTEController.text
+      "Img": _imageTEController.text,
+      "ProductCode": _codeTEController.text,
+      "ProductName": _productNameTEController.text,
+      "Qty": _quantityTEController.text,
+      "TotalPrice": _totalPriceTEController.text,
+      "UnitPrice": _unitPriceTEController.text
     };
     Response response = await post(
       uri,
