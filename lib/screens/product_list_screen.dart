@@ -24,6 +24,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
   }
 
   @override
+  void didUpdateWidget(covariant ProductListScreen oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    getProductList();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -46,6 +53,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   return ProductItem(
                     product: productList[index],
+                    getProductList: getProductList,
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
@@ -60,7 +68,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
             MaterialPageRoute(builder: (context) {
               return const AddNewProductScreen();
             }),
-          );
+          ).then((response) {
+            getProductList();
+          });
         },
         child: const Icon(Icons.add),
       ),

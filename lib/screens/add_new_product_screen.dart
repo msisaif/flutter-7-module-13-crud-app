@@ -146,6 +146,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
     });
 
     Uri uri = Uri.parse('http://164.68.107.70:6060/api/v1/CreateProduct');
+
     Map<String, dynamic> requestBody = {
       "Img": _imageTEController.text,
       "ProductCode": _codeTEController.text,
