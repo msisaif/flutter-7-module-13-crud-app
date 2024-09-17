@@ -45,7 +45,9 @@ class _ProductItemState extends State<ProductItem> {
                         );
                       },
                     ),
-                  );
+                  ).then((response) {
+                    widget.getProductList!();
+                  });
                 },
                 icon: const Icon(Icons.edit),
                 label: const Text('Edit'),
